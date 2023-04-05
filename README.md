@@ -14,6 +14,12 @@ In this small project we learn how to write AWS CDK infra code using the version
 
 ## Process to build goes like this:
 
+## Install dependencies
+```bash
+    npm i @aws-cdk/aws-s3-deployment
+```
+
+
 ## Checking Stack and Resources on AWS before deployment
 - We can see below that our ELb stak is not yet deployed.
 
@@ -33,7 +39,10 @@ In this small project we learn how to write AWS CDK infra code using the version
 ###  Exceuting commands for deployment
 - Bootstraping our AWS Account for correct configuration
 ```bash
-    cdk bootstrap
+    aws sts get-caller-identity
+    aws configure get region
+    aws cloudformation delete-stack --stack-name CDKToolkit ## to erase old stack if present
+    cdk bootstrap aws://ACCOUNT-NUMBER-1/REGION-1 --force # to clean previous configuration
 ```
 - Checking the Differences changes
 ```bash
@@ -42,7 +51,24 @@ In this small project we learn how to write AWS CDK infra code using the version
 - Output of the CD:
  
  ![image](https://user-images.githubusercontent.com/71230412/229962794-6eebc36b-612b-44d1-8e2a-1ca146215ae6.png)
-         
+
+
+- After we have packaged our Node.js application, and bootstrapped our AWS account and Region, we are ready to build and deploy the CDK application.
+- The first step is to build the CDK application.
+```bash
+    npm run build
+```
+- If there are no errors in our application, this will succeed. We can now deploy the CDK application in the cloud.
+
+```bash
+    cdk deploy
+```
+
+
+- Build the deployment
+```bash
+    npm 
+``         
 - Deployment
 ```bash
     cdk deploy
