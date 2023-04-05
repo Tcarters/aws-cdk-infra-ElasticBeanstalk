@@ -46,8 +46,7 @@ export class AwsCdkInfraElasticBeanstalkStack extends cdk.Stack {
     myRoleEc2.addManagedPolicy(managedPolicy); // attaching the defined policy
 
     const myProfileName = `${appName}-InstanceProfile`; // create profilename
-    //const instanceProfile = 
-    new iam.CfnInstanceProfile(this, myProfileName, {
+    const instanceProfile = new iam.CfnInstanceProfile(this, myProfileName, {
       instanceProfileName: myProfileName,
       roles: [
           myRoleEc2.roleName
@@ -79,8 +78,7 @@ export class AwsCdkInfraElasticBeanstalkStack extends cdk.Stack {
     ]; // end optionSettingProperties
 
     // Create an Elastic Beanstalk environment to run the application
-    //const elbEnv = 
-    new elasticbeanstalk.CfnEnvironment(this, 'Environment', {
+    const elbEnv = new elasticbeanstalk.CfnEnvironment(this, 'Environment', {
       environmentName: 'poem-NodeAppEnvironment',
       applicationName: app.applicationName || appName,
       solutionStackName: '64bit Amazon Linux 2 v5.8.0 running Node.js 18',
