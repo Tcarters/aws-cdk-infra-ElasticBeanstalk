@@ -4,7 +4,6 @@ In this small project we learn how to write AWS CDK infra code using the version
 
 
 ## Useful commands
-
 * `npm run build`   compile typescript to js
 * `npm run watch`   watch for changes and compile
 * `npm run test`    perform the jest unit tests
@@ -13,6 +12,7 @@ In this small project we learn how to write AWS CDK infra code using the version
 * `cdk synth`       emits the synthesized CloudFormation template
 * The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
+## Process to build goes like this:
 
 ## Checking Stack and Resources on AWS before deployment
 - We can see below that our ELb stak is not yet deployed.
@@ -38,11 +38,11 @@ In this small project we learn how to write AWS CDK infra code using the version
 - Checking the Differences changes
 ```bash
     cdk diff
-
-    # Output of the CD
-          
-
 ```
+- Output of the CD:
+ 
+ ![image](https://user-images.githubusercontent.com/71230412/229962794-6eebc36b-612b-44d1-8e2a-1ca146215ae6.png)
+         
 - Deployment
 ```bash
     cdk deploy
