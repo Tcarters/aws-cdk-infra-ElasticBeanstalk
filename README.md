@@ -38,6 +38,10 @@ In this small project we learn how to write AWS CDK infra code using the version
 - Checking the Differences changes
 ```bash
     cdk diff
+
+    # Output of the CD
+          
+
 ```
 - Deployment
 ```bash
