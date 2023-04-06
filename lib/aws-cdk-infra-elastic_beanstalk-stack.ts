@@ -15,8 +15,8 @@ export class AwsCdkInfraElasticBeanstalkStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
     
-  
-    // Phase 1: Create an S3 bucket
+    //---> PHASE 1 NOT REQUIRED ONLY FOR LEARNING PURPOSES
+    //Phase 1: Create an S3 bucket
     const nodeAppS3Bucket = new Bucket(this, 'Bucket', {
       bucketName: 'nodeapp-bucket',
       versioned: true,
@@ -29,8 +29,11 @@ export class AwsCdkInfraElasticBeanstalkStack extends cdk.Stack {
 
     // Phase 2:  Construct an S3 asset from the ZIP located from directory up.
     const webAppZipArchive = new Asset(this, 'poem-WebAppZip', {
-        path: `${__dirname}/../poem-NodeApp.zip`,
+        path: `${__dirname}/../poem-NodeAppV2.zip`, // poem-NodeApp.zip`,
     } );
+    
+
+    //---> NOT REQUIRED FOR LEARNING PURPOSES
     
     // Phase 3: Deploy the asset to an S3 bucket
     nodeAppS3Bucket.addCorsRule({

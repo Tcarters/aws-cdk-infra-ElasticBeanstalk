@@ -58,18 +58,17 @@ In this small project we learn how to write AWS CDK infra code using the version
 ```bash
     npm run build
 ```
+![pic]()
+
 - If there are no errors in our application, this will succeed. We can now deploy the CDK application in the cloud.
 
 ```bash
     cdk deploy
 ```
+![pic]()
 
-
-- Build the deployment
+- Cleaning our environment by desstroying everything and removing
 ```bash
-    npm 
-``         
-- Deployment
-```bash
-    cdk deploy
-```
+    cdk destroy
+``      
+![picdestroy]()
