@@ -16,9 +16,18 @@ In this small project we learn how to write AWS CDK infra code using the version
 
 ## Install dependencies
 ```bash
-    npm i @aws-cdk/aws-s3-deployment
+    sudo npm install -g aws-cdk  ## Install aws cdk tool if not installed earlier
+    cdk --version
+```
+## Initialize our app
+
+```bash
+    mkdir  aws-cdk-infra-ElasticBeanstalk && cd aws-cdk-infra-ElasticBeanstalk 
+    cdk init app --language typescript    
 ```
 
+## Writing the Infrastructure Code 
+- All our code will be defined in the file `aws-cdk-infra-ElasticBeanstalk/lib/aws-cdk-infra-elastic_beanstalk-stack.ts` . 
 
 ## Checking Stack and Resources on AWS before deployment
 - We can see below that our ELb stak is not yet deployed.
@@ -58,17 +67,16 @@ In this small project we learn how to write AWS CDK infra code using the version
 ```bash
     npm run build
 ```
-![pic]()
-
 - If there are no errors in our application, this will succeed. We can now deploy the CDK application in the cloud.
 
 ```bash
     cdk deploy
 ```
-![pic]()
+![cdkDEPLOY-elb](https://user-images.githubusercontent.com/71230412/230296781-8eb84400-2f7f-4b95-ab82-3057753aa3f3.png)
 
 - Cleaning our environment by desstroying everything and removing
+
 ```bash
     cdk destroy
-``      
-![picdestroy]()
+```      
+![cdkDESTROY](https://user-images.githubusercontent.com/71230412/230296855-4ce284fd-3435-4885-8dfc-efa1160688d1.png)
